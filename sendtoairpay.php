@@ -26,15 +26,15 @@ header( 'Pragma: no-cache' );
 	$buyerFirstName = "Hari";
 	$buyerLastName = "Haran";
 	$buyerAddress = "address";
-	$amount = "20";
+	$amount = 20.00;
 	$buyerCity = "banglore";
 	$buyerState = "karnataka";
 	$buyerPinCode = "560001";
 	$buyerCountry = "INDIA";
 	$orderid = "123456"; //Your System Generated Order ID
 	// $hiddenmod = trim($_POST['directindexvar']);
-	$currency = "INR";
-	$isocurrency = "sd";
+	$currency = "356";
+	$isocurrency = "INR";
 	
     include('config.php');
     include('checksum.php');
