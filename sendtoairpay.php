@@ -32,13 +32,13 @@ header( 'Pragma: no-cache' );
 	$buyerPinCode = "560001";
 	$buyerCountry = "INDIA";
 	$orderid = "123456"; //Your System Generated Order ID
-	// $hiddenmod = trim($_POST['directindexvar']);
+	$hiddenmod = "upi";
 	$currency = "356";
 	$isocurrency = "INR";
 	
     include('config.php');
     include('checksum.php');
-    include('validation.php');
+    // include('validation.php');
 	
 
 	$date = date('Y-m-d');
@@ -51,7 +51,7 @@ header( 'Pragma: no-cache' );
 	$privatekey = Checksum::encrypt($username.":|:".$password, $secret);
     $keySha256 = Checksum::encryptSha256($username."~:~".$password);
     $checksum = Checksum::calculateChecksumSha256($alldata.date('Y-m-d'),$keySha256);
-  	$hiddenmod = "";
+  	$hiddenmod = "upi";
 	
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3./org/1999/xhtml">
@@ -80,14 +80,41 @@ function submitForm(){
 				<input type="hidden" name="orderid" value="<?php echo $orderid; ?>">
  		        <input type="hidden" name="currency" value="<?php echo $currency; ?>">
 		        <input type="hidden" name="isocurrency" value="<?php echo $isocurrency; ?>">
-				<!-- <input type="hidden" name="arpyVer" value="3"> -->
-				<input type="hidden" name="chmod" value="<?php echo $hiddenmod; ?>">					
+				<input type="hidden" name="chmod" value="<?php echo $hiddenmod; ?>">	
+				<input type="hidden" name="buyerEmail" value="<?php echo $buyerEmail; ?>">					
+				<input type="hidden" name="buyerPhone" value="<?php echo $buyerPhone; ?>">
+				<input type="hidden" name="buyerFirstName" value="<?php echo $buyerFirstName; ?>">
+				<input type="hidden" name="buyerLastName" value="<?php echo $buyerLastName; ?>">
+				<input type="hidden" name="buyerAddress" value="<?php echo $buyerAddress; ?>">					
+				<input type="hidden" name="amount" value="<?php echo $amount; ?>">
+				<input type="hidden" name="buyerCity" value="<?php echo $buyerCity; ?>">
+				<input type="hidden" name="buyerState" value="<?php echo $buyerState; ?>">
+				<input type="hidden" name="buyerPinCode" value="<?php echo $buyerPinCode; ?>">
+				<input type="hidden" name="buyerCountry" value="<?php echo $buyerCountry; ?>">
+				<input type="hidden" name="orderid" value="<?php echo $orderid; ?>">
+				<input type="hidden" name="hiddenmod" value="<?php echo $hiddenmod; ?>">
+				<input type="hidden" name="currency" value="<?php echo $currency; ?>">
+				<input type="hidden" name="isocurrency" value="<?php echo $isocurrency; ?>">
+				<input type="hidden" name="privatekey" value="<?php echo $privatekey; ?>">
+				<input type="hidden" name="keySha256" value="<?php echo $keySha256; ?>">
+				<input type="hidden" name="checksum" value="<?php echo $checksum; ?>">
 				<?php
 				Checksum::outputForm($checksum);
 				?>
-
 			</form>
 		</td>
+
+
+		<!-- $date = date('Y-m-d');
+	$alldata   = $buyerEmail.$buyerFirstName.$buyerLastName.$buyerAddress.$buyerCity.$buyerState.$buyerCountry.$amount.$orderid.$hiddenmod;
+	$privatekey = Checksum::encrypt($username.":|:".$password, $secret);
+	$keySha256 = Checksum::encryptSha256($username."~:~".$password);
+	$checksum = Checksum::calculateChecksum($alldata,$keySha256);
+
+	$alldata   = $buyerEmail.$buyerFirstName.$buyerLastName.$buyerAddress.$buyerCity.$buyerState.$buyerCountry.$amount.$orderid;
+	$privatekey = Checksum::encrypt($username.":|:".$password, $secret);
+    $keySha256 = Checksum::encryptSha256($username."~:~".$password);
+    $checksum = Checksum::calculateChecksumSha256($alldata.date('Y-m-d'),$keySha256); -->
 
 	</tr>
 
