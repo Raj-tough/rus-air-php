@@ -62,6 +62,7 @@ header( 'Pragma: no-cache' );
 function submitForm(){
 			var form = document.forms[0];
 			form.submit();
+			console.log("form -> ", form)
 		}
 </script>
 </head>
