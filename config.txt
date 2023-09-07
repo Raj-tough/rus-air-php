@@ -1,0 +1,3 @@
+Domain : https://api-airpay.genniepay.com
+Webhook URL: https://api-airpay.genniepay.com/airpay/webhook
+Success URL: https://api-airpay.genniepay.com/rus-air-php/responsefromairpay.php

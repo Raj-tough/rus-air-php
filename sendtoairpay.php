@@ -26,12 +26,12 @@ header( 'Pragma: no-cache' );
 	$buyerFirstName = "Hari";
 	$buyerLastName = "Haran";
 	$buyerAddress = "address";
-	$amount = 20.00;
+	$amount = 100.00;
 	$buyerCity = "banglore";
 	$buyerState = "karnataka";
 	$buyerPinCode = "560001";
 	$buyerCountry = "INDIA";
-	$orderid = "123456"; //Your System Generated Order ID
+	$orderid = rand(10000,99999); //Your System Generated Order ID
 	$hiddenmod = "upi";
 	$currency = "356";
 	$isocurrency = "INR";
@@ -95,26 +95,12 @@ function submitForm(){
 				<input type="hidden" name="hiddenmod" value="<?php echo $hiddenmod; ?>">
 				<input type="hidden" name="currency" value="<?php echo $currency; ?>">
 				<input type="hidden" name="isocurrency" value="<?php echo $isocurrency; ?>">
-				<input type="hidden" name="privatekey" value="<?php echo $privatekey; ?>">
 				<input type="hidden" name="keySha256" value="<?php echo $keySha256; ?>">
-				<input type="hidden" name="checksum" value="<?php echo $checksum; ?>">
 				<?php
 				Checksum::outputForm($checksum);
 				?>
 			</form>
 		</td>
-
-
-		<!-- $date = date('Y-m-d');
-	$alldata   = $buyerEmail.$buyerFirstName.$buyerLastName.$buyerAddress.$buyerCity.$buyerState.$buyerCountry.$amount.$orderid.$hiddenmod;
-	$privatekey = Checksum::encrypt($username.":|:".$password, $secret);
-	$keySha256 = Checksum::encryptSha256($username."~:~".$password);
-	$checksum = Checksum::calculateChecksum($alldata,$keySha256);
-
-	$alldata   = $buyerEmail.$buyerFirstName.$buyerLastName.$buyerAddress.$buyerCity.$buyerState.$buyerCountry.$amount.$orderid;
-	$privatekey = Checksum::encrypt($username.":|:".$password, $secret);
-    $keySha256 = Checksum::encryptSha256($username."~:~".$password);
-    $checksum = Checksum::calculateChecksumSha256($alldata.date('Y-m-d'),$keySha256); -->
 
 	</tr>
 

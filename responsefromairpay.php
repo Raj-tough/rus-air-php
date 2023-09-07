@@ -65,7 +65,6 @@ $CHMOD = trim($_POST['CHMOD']);
 }
 if (isset($_POST['CUSTOMVAR'])){
 	$CUSTOMVAR  = trim($_POST['CUSTOMVAR']);
-	
 }
 else{
 	$CUSTOMVAR  = "";
